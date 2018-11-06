@@ -9,23 +9,17 @@ if (( $# < 1 )); then
     printf "  protect-files.sh ./my-file.pdf forbidcopykey cryptkey\n\n"
 fi
 
-echo "in protect-files.sh"
-echo "ARG 1 : $1"
-echo "ARG 2 : $2"
-echo "ARG 3 : $3"
-echo ""
-
 case "$#" in
     "1")
-        echo "in case args equals 1"
+        echo "Forbid copy/paste"
         docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1"
         ;;
     "2")
-        echo "in case args equals 2"
+        echo "Forbid copy/paste with custom key : $2"
         docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1" "$2"
         ;;
     "3")
-        echo "in case args equals 3"
+        echo "Crypting file with the following key : $3"
         docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1" "$2" "$3"
         ;;
 esac
