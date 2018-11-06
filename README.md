@@ -15,20 +15,29 @@ $ docker build . -t pdftk-alpine
 In order to forbid copy/paste with DRM :
 
 ```bash
-$ ./path/to/alpine-pdftk/protect-files.sh ./path/to/file.pdf
+$ ./path/to/pdftk-alpine/protect-files.sh ./path/to/file.pdf
 ```
 
 Same thing with a custom key :
 
 ```bash
-$ ./path/to/alpine-pdftk/protect-files.sh ./path/to/file.pdf xxxxxx
+$ ./path/to/pdftk-alpine/protect-files.sh ./path/to/file.pdf xxxxxx
 ```
 
 In order to crypt the file :
 
 ```bash
-$ ./path/to/alpine-pdftk/protect-files.sh ./path/to/file.pdf xxxxxx crypt-key
+$ ./path/to/pdftk-alpine/protect-files.sh ./path/to/file.pdf xxxxxx crypt-key
 ```
+
+If you want to process multiple files as once, you must use a bash for loop :
+
+```bash
+for f in $(ls *.pdf) ; do ./path/to/pdftk-alpine/protect-files.sh $f ; done
+```
+
+Theses files must be within the current working directory tree because it is mounted inside the container at runtime.
+
 
 ### Running the container by hand
 
