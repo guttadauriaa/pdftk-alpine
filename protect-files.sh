@@ -18,14 +18,14 @@ echo ""
 case "$#" in
     "1")
         echo "in case args equals 1"
-        docker run -it --rm --name=test -v $(pwd):/files pdftktest "$1"
+        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1"
         ;;
     "2")
         echo "in case args equals 2"
-        docker run -it --rm --name=test -v $(pwd):/files pdftktest "$1" "$2"
+        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1" "$2"
         ;;
     "3")
         echo "in case args equals 3"
-        docker run -it --rm --name=test -v $(pwd):/files pdftktest "$1" "$2" "$3"
+        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1" "$2" "$3"
         ;;
 esac

@@ -7,7 +7,7 @@ Docker Container with pdftk allows you to protect PDF files against copy/paste a
 
 ```bash
 $ cd pdftk-alpine
-$ docker build . -t pdftktest
+$ docker build . -t pdftk-alpine
 ```
 
 ### Then, to run the pdftk container with the supplied script
@@ -40,3 +40,4 @@ $ docker build . -t my_pdftk_image
 $ cd
 $ docker run -it --rm --name=my_pdftk_container -v $(pwd):/files my_pdftk_image ./path/to/file.pdf
 ```
+
