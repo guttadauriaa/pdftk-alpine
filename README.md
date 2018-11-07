@@ -36,6 +36,14 @@ If you want to process multiple files as once, you must use a bash for loop :
 for f in $(ls *.pdf) ; do ./path/to/pdftk-alpine/protect-files.sh $f ; done
 ```
 
+If the filenames contains whitespaces the for loop will not work.
+
+This command will find all files ending with ***.pdf*** extensions in the current directory :
+
+```bash
+find . -name "*.pdf" -exec ./path/to/pdftk-alpine/protect-files.sh "{}" \;
+```
+
 Theses files must be within the current working directory tree because it is mounted inside the container at runtime.
 
 
