@@ -12,14 +12,14 @@ fi
 case "$#" in
     "1")
         echo "Forbid copy/paste"
-        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1"
+        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "${1}"
         ;;
     "2")
-        echo "Forbid copy/paste with custom key : $2"
-        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1" "$2"
+        echo "Forbid copy/paste with custom key : ${2}"
+        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "${1}" "${2}"
         ;;
     "3")
-        echo "Crypting file with the following key : $3"
-        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "$1" "$2" "$3"
+        echo "Crypting file with the following key : ${3}"
+        docker run -it --rm --name=pdftk-alpine -v $(pwd):/files pdftk-alpine "${1}" "${2}" "${3}"
         ;;
 esac
